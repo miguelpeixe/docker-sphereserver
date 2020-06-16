@@ -16,8 +16,9 @@ services:
       - MYSQL_PASSWORD
     volumes:
       - ${CONFIG}:/config
-      - ${DATA}:/data
-      - ${MUL}:/mul
+      - ${DATA}/accounts:/data/accounts
+      - ${DATA}/logs:/data/logs
+      - ${DATA}/save:/data/save
     networks:
       sphere:
   mysql:

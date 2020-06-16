@@ -1,3 +1,4 @@
 #!/usr/bin/with-contenv bash
 
-cd /etc/sphere && exec ./spheresvr
+cd /etc/sphere
+script --return -c "/etc/sphere/spheresvr" /dev/null

@@ -1,7 +1,7 @@
 #!/usr/bin/with-contenv bash
 
 mkdir -p \
-  /data/{save,logs,accounts} \
+  /etc/sphere/{save,logs,accounts,scripts,mul} \
   /run
 
 tpl /defaults/sphere.ini > /etc/sphere/sphere.ini
@@ -15,4 +15,21 @@ fi
 # Replace sphere.ini if present at config directory
 if [[ -f /config/sphere.ini ]]; then
   cp /config/sphere.ini /etc/sphere/sphere.ini
+fi
+
+# Replace sphereCrypt.ini if present at config directory
+if [[ -f /config/sphereCrypt.ini ]]; then
+  cp /config/sphereCrypt.ini /etc/sphere/sphereCrypt.ini
+fi
+
+# Scripts
+if [ "$(ls -A /config/scripts)" ]; then
+     cp -R /config/scripts/* /etc/sphere/scripts
+else
+     cp -R /scripts/* /etc/sphere/scripts
+fi
+
+# Mul
+if [ "$(ls -A /config/mul)" ]; then
+     cp -R /config/mul/* /etc/sphere/mul
 fi
