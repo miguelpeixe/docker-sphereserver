@@ -1,0 +1,18 @@
+#!/usr/bin/with-contenv bash
+
+mkdir -p \
+  /data/{save,logs,accounts} \
+  /run
+
+tpl /defaults/sphere.ini > /etc/sphere/sphere.ini
+
+chmod +x /etc/sphere/spheresvr
+
+if [[ ! -f /etc/sphere/sphereCrypt.ini ]]; then
+  cp /etc/sphere/src/sphereCrypt.ini /etc/sphere/sphereCrypt.ini
+fi
+
+# Replace sphere.ini if present at config directory
+if [[ -f /config/sphere.ini ]]; then
+  cp /config/sphere.ini /etc/sphere/sphere.ini
+fi

@@ -1,0 +1,38 @@
+version: "3"
+services:
+  sphere:
+    image: miguelpeixe/sphereserver
+    build: .
+    links:
+      - "mysql"
+    ports:
+      - "${SHARD_PORT}:2593"
+    environment:
+      - SHARD_NAME
+      - ENABLE_MYSQL
+      - MYSQL_SERVER
+      - MYSQL_DATABASE
+      - MYSQL_USER
+      - MYSQL_PASSWORD
+    volumes:
+      - ${CONFIG}:/config
+      - ${DATA}:/data
+      - ${MUL}:/mul
+    networks:
+      sphere:
+  mysql:
+    image: mysql:5
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_DATABASE
+      - MYSQL_USER
+      - MYSQL_PASSWORD
+      - MYSQL_RANDOM_ROOT_PASSWORD=1
+    networks:
+      sphere:
+        aliases:
+          - ${MYSQL_SERVER}
+
+networks:
+  sphere:
