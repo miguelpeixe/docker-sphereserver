@@ -17,8 +17,8 @@ For questions and more information about SphereServer, please head to the commun
 ## Setup
 
 ```
-$ git clone
-$ cd sphereserver
+$ git clone https://github.com/miguelpeixe/docker-sphereserver.git
+$ cd docker-sphereserver
 $ cp env.example .env
 ```
 
