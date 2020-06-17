@@ -1,4 +1,12 @@
 #!/usr/bin/with-contenv bash
 
 cd /etc/sphere
-script --return -c "/etc/sphere/spheresvr" /dev/null
+
+mkfifo /tmp/sphere-input
+cat > /tmp/sphere-input &
+
+tail -f /tmp/sphere-input | \
+  script --return -c "/etc/sphere/spheresvr" /dev/null | \
+  tee /tmp/sphere-output
+
+tail -0f /tmp/sphere-output

@@ -2,6 +2,7 @@ version: "3"
 services:
   sphere:
     image: miguelpeixe/sphereserver
+    restart: unless-stopped
     build: .
     links:
       - "mysql"
@@ -23,6 +24,7 @@ services:
       sphere:
   mysql:
     image: mysql:5
+    restart: unless-stopped
     ports:
       - 3306:3306
     environment:
