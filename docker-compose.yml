@@ -3,8 +3,6 @@ services:
   sphere:
     image: miguelpeixe/sphereserver
     restart: unless-stopped
-    links:
-      - "mysql"
     ports:
       - "${SHARD_PORT}:2593"
     environment:
