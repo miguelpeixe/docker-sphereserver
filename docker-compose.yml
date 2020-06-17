@@ -3,13 +3,14 @@ services:
   sphere:
     image: miguelpeixe/sphereserver
     restart: unless-stopped
-    build: .
     links:
       - "mysql"
     ports:
       - "${SHARD_PORT}:2593"
     environment:
       - SHARD_NAME
+      - SHARD_EMAIL
+      - SHARD_URL
       - ENABLE_MYSQL
       - MYSQL_SERVER
       - MYSQL_DATABASE
