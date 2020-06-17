@@ -9,6 +9,7 @@ services:
       - SHARD_NAME
       - SHARD_EMAIL
       - SHARD_URL
+      - REST_API_PUBLIC_API
       - ENABLE_MYSQL
       - MYSQL_SERVER
       - MYSQL_DATABASE
