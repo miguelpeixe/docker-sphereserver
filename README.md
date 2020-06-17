@@ -1,6 +1,6 @@
 # Docker SphereServer
 
-Containerized Ulima Online x86 [SphereServer](https://github.com/Sphereserver/Source).
+Containerized Ulima Online [SphereServer](https://github.com/Sphereserver/Source).
 
 This is a [debian:stretch-slim](https://hub.docker.com/_/debian) with [s6-overlay](https://github.com/just-containers/s6-overlay) based docker image for a highly flexible and configurable SphereServer setup.
 
