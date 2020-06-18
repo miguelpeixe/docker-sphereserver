@@ -10,6 +10,7 @@ services:
       - SHARD_EMAIL
       - SHARD_URL
       - REST_API_PUBLIC_IP
+      - ENABLE_BACKUPS
       - ENABLE_MYSQL
       - MYSQL_SERVER
       - MYSQL_DATABASE
@@ -20,6 +21,7 @@ services:
       - ${DATA}/accounts:/data/accounts
       - ${DATA}/logs:/data/logs
       - ${DATA}/save:/data/save
+      - ${DATA}/backups:/data/backups
     networks:
       sphere:
   mysql:

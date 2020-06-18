@@ -1,4 +1,4 @@
 #!/usr/bin/execlineb -S0
 
-rm /etc/sphere/sphere.pid
+rm -f /etc/sphere/sphere.pid
 s6-svscanctl -t /var/run/s6/services

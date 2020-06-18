@@ -33,3 +33,10 @@ fi
 if [ "$(ls -A /config/mul)" ]; then
      cp -R /config/mul/* /etc/sphere/mul
 fi
+
+# Backups
+if [[ $ENABLE_BACKUPS -eq 1 ]]; then
+  cp /defaults/backup /etc/cron.hourly/
+else
+  rm -f /etc/cron.hourly/backup
+fi

@@ -1,0 +1,12 @@
+#!/usr/bin/with-contenv bash
+
+DATADIR="/data"
+NOW=$(date +"%Y-%m-%d-%H-%M-%S")
+FILE="backup.$NOW.tar.gz"
+
+mkdir -p $DATADIR/backups
+
+tar -czf $DATADIR/backups/$FILE \
+  $DATADIR/accounts \
+  $DATADIR/logs \
+  $DATADIR/save
