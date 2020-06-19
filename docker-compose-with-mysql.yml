@@ -22,3 +22,24 @@ services:
       - ${DATA}/logs:/data/logs
       - ${DATA}/save:/data/save
       - ${DATA}/backups:/data/backups
+    networks:
+      sphere:
+  mysql:
+    image: mysql:5
+    restart: unless-stopped
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_DATABASE
+      - MYSQL_USER
+      - MYSQL_PASSWORD
+      - MYSQL_RANDOM_ROOT_PASSWORD=1
+    volumes:
+      ${DATA}/mysql:/var/lib/mysql
+    networks:
+      sphere:
+        aliases:
+          - ${MYSQL_SERVER}
+
+networks:
+  sphere:

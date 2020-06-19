@@ -1,7 +1,8 @@
 #!/usr/bin/with-contenv bash
 
 tail -0f /tmp/sphere-output &
-
+TAIL_PID=$!
 echo "$@" > /tmp/sphere-input
 sleep 1
+kill -9 $TAIL_PID
 exit 0

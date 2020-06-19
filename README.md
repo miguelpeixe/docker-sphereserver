@@ -86,6 +86,14 @@ $ docker-compose up -d
 
 The compose file already applies _restart unless stopped_ policy.
 
+### Running with dockerized MySQL
+
+You can run with a dockerized MySQL with persistent volumes at `$DATA/mysql`:
+
+```
+$ docker-compose -f docker-compose-with-mysql.yml up -d
+```
+
 ## Commands
 
 You can send commands to your sphereserver by using `spherectl` command inside docker.
